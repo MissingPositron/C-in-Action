@@ -30,14 +30,15 @@
         {
             this.grpAlbum = new System.Windows.Forms.GroupBox();
             this.btnAlbumProps = new System.Windows.Forms.Button();
-            this.btnOpen = new System.Windows.Forms.Button();
             this.grpPhotos = new System.Windows.Forms.GroupBox();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnMoveDown = new System.Windows.Forms.Button();
+            this.btnMoveUp = new System.Windows.Forms.Button();
             this.btnPhotoProps = new System.Windows.Forms.Button();
             this.lstPhotos = new System.Windows.Forms.ListBox();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnMoveUp = new System.Windows.Forms.Button();
-            this.btnMoveDown = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
+            this.comboAlbums = new System.Windows.Forms.ComboBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
             this.grpAlbum.SuspendLayout();
             this.grpPhotos.SuspendLayout();
             this.SuspendLayout();
@@ -46,11 +47,12 @@
             // 
             this.grpAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpAlbum.Controls.Add(this.btnBrowse);
+            this.grpAlbum.Controls.Add(this.comboAlbums);
             this.grpAlbum.Controls.Add(this.btnAlbumProps);
-            this.grpAlbum.Controls.Add(this.btnOpen);
             this.grpAlbum.Location = new System.Drawing.Point(26, 24);
             this.grpAlbum.Name = "grpAlbum";
-            this.grpAlbum.Size = new System.Drawing.Size(346, 61);
+            this.grpAlbum.Size = new System.Drawing.Size(379, 61);
             this.grpAlbum.TabIndex = 0;
             this.grpAlbum.TabStop = false;
             this.grpAlbum.Text = "&Albums";
@@ -59,24 +61,13 @@
             // 
             this.btnAlbumProps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAlbumProps.Enabled = false;
-            this.btnAlbumProps.Location = new System.Drawing.Point(265, 19);
+            this.btnAlbumProps.Location = new System.Drawing.Point(298, 19);
             this.btnAlbumProps.Name = "btnAlbumProps";
             this.btnAlbumProps.Size = new System.Drawing.Size(75, 23);
             this.btnAlbumProps.TabIndex = 1;
             this.btnAlbumProps.Text = "Propertie&s";
             this.btnAlbumProps.UseVisualStyleBackColor = true;
             this.btnAlbumProps.Click += new System.EventHandler(this.btnAlbumProps_Click);
-            // 
-            // btnOpen
-            // 
-            this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpen.Location = new System.Drawing.Point(184, 19);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(75, 23);
-            this.btnOpen.TabIndex = 0;
-            this.btnOpen.Text = "&Open";
-            this.btnOpen.UseVisualStyleBackColor = true;
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // grpPhotos
             // 
@@ -90,15 +81,48 @@
             this.grpPhotos.Controls.Add(this.lstPhotos);
             this.grpPhotos.Location = new System.Drawing.Point(26, 101);
             this.grpPhotos.Name = "grpPhotos";
-            this.grpPhotos.Size = new System.Drawing.Size(346, 157);
+            this.grpPhotos.Size = new System.Drawing.Size(379, 157);
             this.grpPhotos.TabIndex = 1;
             this.grpPhotos.TabStop = false;
             this.grpPhotos.Text = "&Photographs";
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemove.Location = new System.Drawing.Point(298, 82);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.TabIndex = 4;
+            this.btnRemove.Text = "&Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnMoveDown
+            // 
+            this.btnMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMoveDown.Location = new System.Drawing.Point(298, 48);
+            this.btnMoveDown.Name = "btnMoveDown";
+            this.btnMoveDown.Size = new System.Drawing.Size(75, 23);
+            this.btnMoveDown.TabIndex = 3;
+            this.btnMoveDown.Text = "Move &Down";
+            this.btnMoveDown.UseVisualStyleBackColor = true;
+            this.btnMoveDown.Click += new System.EventHandler(this.btnMoveDown_Click);
+            // 
+            // btnMoveUp
+            // 
+            this.btnMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMoveUp.Location = new System.Drawing.Point(298, 19);
+            this.btnMoveUp.Name = "btnMoveUp";
+            this.btnMoveUp.Size = new System.Drawing.Size(75, 23);
+            this.btnMoveUp.TabIndex = 2;
+            this.btnMoveUp.Text = "Move &Up";
+            this.btnMoveUp.UseVisualStyleBackColor = true;
+            this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
+            // 
             // btnPhotoProps
             // 
             this.btnPhotoProps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPhotoProps.Location = new System.Drawing.Point(265, 111);
+            this.btnPhotoProps.Location = new System.Drawing.Point(298, 111);
             this.btnPhotoProps.Name = "btnPhotoProps";
             this.btnPhotoProps.Size = new System.Drawing.Size(75, 25);
             this.btnPhotoProps.TabIndex = 1;
@@ -116,7 +140,7 @@
             this.lstPhotos.Location = new System.Drawing.Point(19, 28);
             this.lstPhotos.Name = "lstPhotos";
             this.lstPhotos.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstPhotos.Size = new System.Drawing.Size(240, 108);
+            this.lstPhotos.Size = new System.Drawing.Size(273, 108);
             this.lstPhotos.TabIndex = 0;
             this.lstPhotos.SelectedIndexChanged += new System.EventHandler(this.lstPhotos_SelectedIndexChanged);
             this.lstPhotos.DoubleClick += new System.EventHandler(this.lstPhotos_DoubleClick);
@@ -125,7 +149,7 @@
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnClose.Location = new System.Drawing.Point(147, 264);
+            this.btnClose.Location = new System.Drawing.Point(163, 264);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 2;
@@ -133,45 +157,36 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnMoveUp
+            // comboAlbums
             // 
-            this.btnMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMoveUp.Location = new System.Drawing.Point(265, 19);
-            this.btnMoveUp.Name = "btnMoveUp";
-            this.btnMoveUp.Size = new System.Drawing.Size(75, 23);
-            this.btnMoveUp.TabIndex = 2;
-            this.btnMoveUp.Text = "Move &Up";
-            this.btnMoveUp.UseVisualStyleBackColor = true;
-            this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
+            this.comboAlbums.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboAlbums.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboAlbums.DropDownWidth = 400;
+            this.comboAlbums.FormattingEnabled = true;
+            this.comboAlbums.Location = new System.Drawing.Point(19, 21);
+            this.comboAlbums.Name = "comboAlbums";
+            this.comboAlbums.Size = new System.Drawing.Size(199, 21);
+            this.comboAlbums.TabIndex = 2;
+            this.comboAlbums.SelectionChangeCommitted += new System.EventHandler(this.comboAlbums_SelectionChangeCommitted);
             // 
-            // btnMoveDown
+            // btnBrowse
             // 
-            this.btnMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMoveDown.Location = new System.Drawing.Point(265, 48);
-            this.btnMoveDown.Name = "btnMoveDown";
-            this.btnMoveDown.Size = new System.Drawing.Size(75, 23);
-            this.btnMoveDown.TabIndex = 3;
-            this.btnMoveDown.Text = "Move &Down";
-            this.btnMoveDown.UseVisualStyleBackColor = true;
-            this.btnMoveDown.Click += new System.EventHandler(this.btnMoveDown_Click);
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemove.Location = new System.Drawing.Point(265, 82);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 23);
-            this.btnRemove.TabIndex = 4;
-            this.btnRemove.Text = "&Remove";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBrowse.Location = new System.Drawing.Point(224, 19);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(70, 23);
+            this.btnBrowse.TabIndex = 3;
+            this.btnBrowse.Text = "&Browse";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // EditorForm
             // 
             this.AcceptButton = this.btnClose;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 298);
+            this.ClientSize = new System.Drawing.Size(417, 298);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.grpPhotos);
             this.Controls.Add(this.grpAlbum);
@@ -187,7 +202,6 @@
 
         private System.Windows.Forms.GroupBox grpAlbum;
         private System.Windows.Forms.GroupBox grpPhotos;
-        private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.ListBox lstPhotos;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnAlbumProps;
@@ -195,6 +209,8 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnMoveDown;
         private System.Windows.Forms.Button btnMoveUp;
+        private System.Windows.Forms.ComboBox comboAlbums;
+        private System.Windows.Forms.Button btnBrowse;
     }
 }
 

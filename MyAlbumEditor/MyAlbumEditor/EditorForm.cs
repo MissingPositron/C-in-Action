@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using Manning.MyPhotoAlbum;
 using Manning.MyPhotoControls;
+
 
 namespace MyAlbumEditor
 {
@@ -46,6 +48,14 @@ namespace MyAlbumEditor
             return false;
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            comboAlbums.DataSource = Directory.GetFiles(AlbumManager.DefaultPath, "*.abm");
+            OpenAlbum(comboAlbums.Text);
+
+            base.OnLoad(e);
+        }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = CloseAlbum();
@@ -54,27 +64,6 @@ namespace MyAlbumEditor
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void btnOpen_Click(object sender, EventArgs e)
-        {
-            string path = null;
-            string password = null;
-            if (AlbumController.OpenAlbumDialog(ref path, ref password))
-            {
-                if (CloseAlbum())
-                    return; // cancel open
-                try
-                {
-                    Manager = new AlbumManager(path, password);
-                }
-                catch (AlbumStorageException)
-                {
-                    Manager = null;
-                }
-            }
-            DisplayAlbum();
-            EnablePhotoButtons();
         }
 
         private void DisplayAlbum()
@@ -219,6 +208,58 @@ namespace MyAlbumEditor
                 for (int i = count - 1; i >= 0; i--)
                     Manager.Album.RemoveAt(indices[i]);
                 DisplayAlbum();
+            }
+        }
+
+        private void comboAlbums_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string path = comboAlbums.Text;
+
+            // Don't reopen the existing album
+            if (Manager != null && path == Manager.FullName)
+                return;
+
+            // Open the new album
+            OpenAlbum(path);
+        }
+
+        private void OpenAlbum(string path)
+        {
+            string password = null;
+            if (path != null && path.Length > 0 &&
+                AlbumController.CheckAlbumPassword(path, ref password))
+            {
+                if (CloseAlbum())
+                    return; // cancel open
+                try
+                {
+                    Manager = new AlbumManager(path, password);
+                }
+                catch (AlbumStorageException)
+                {
+                    Manager = null;
+                }
+            }
+            DisplayAlbum();
+            EnablePhotoButtons();
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            {
+                dlg.Description = "Select an album file "
+                    + "directory to add to the dialog.";
+                dlg.SelectedPath = AlbumManager.DefaultPath;
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    if (CloseAlbum())
+                        return; // cancel browse
+
+                    comboAlbums.Text = null;
+                    comboAlbums.DataSource = Directory.GetFiles(dlg.SelectedPath, "*.abm");
+                    OpenAlbum(comboAlbums.Text);
+                }
             }
         }
     }

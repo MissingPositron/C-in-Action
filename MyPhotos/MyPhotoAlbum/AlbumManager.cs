@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.IO;
+using System.Collections.Specialized;
 
 namespace Manning.MyPhotoAlbum
 {
@@ -31,7 +32,7 @@ namespace Manning.MyPhotoAlbum
 
         static AlbumManager()
         {
-            _defaultPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + @"\Albums";
+            _defaultPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
         }
 
         public AlbumManager()
@@ -175,6 +176,30 @@ namespace Manning.MyPhotoAlbum
             Photograph photo = Album[index];
             Album.RemoveAt(index);
             Album.Insert(index + 1, photo);
+        }
+
+        private StringCollection _photographers = null;
+
+        public StringCollection Photographers
+        {
+            get
+            {
+                if (Album.HasChanged || _photographers == null)
+                {
+                    _photographers = new StringCollection();
+                    foreach (Photograph p in Album)
+                    {
+                        // Make sure we add each person only once 
+                        string person = p.Photographer;
+                        if (person != null && person.Length > 0
+                            && !_photographers.Contains(person))
+                        {
+                            _photographers.Add(person);
+                        }
+                    }
+                }
+                return _photographers;
+            }
         }
     }
 }

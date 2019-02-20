@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections.Specialized;
 using Manning.MyPhotoAlbum;
 
 namespace Manning.MyPhotoControls
@@ -53,13 +54,29 @@ namespace Manning.MyPhotoControls
 
         protected override void ResetDialog()
         {
+            // Fill combo box with photographers in album
+            comboPhotographer.BeginUpdate();
+            comboPhotographer.Items.Clear();
+
+            if (Manager != null)
+            {
+                StringCollection col1 = Manager.Photographers;
+                foreach (string s in col1)
+                    comboPhotographer.Items.Add(s);
+            }
+            else
+                comboPhotographer.Items.Add(Photo.Photographer);
+
+            comboPhotographer.EndUpdate();
+
+            // Initialize form contents
             Photograph photo = Photo;
             if (photo != null)
             {
                 txtPhotoFile.Text = photo.FileName;
                 txtCaption.Text = photo.Caption;
                 mskDateTaken.Text = photo.DateTaken.ToString();
-                txtPhotographer.Text = photo.Photographer;
+                comboPhotographer.Text = photo.Photographer;
                 txtNotes.Text = photo.Notes;
             }
         }
@@ -76,7 +93,7 @@ namespace Manning.MyPhotoControls
             if (photo != null)
             {
                 photo.Caption = txtCaption.Text;
-                photo.Photographer = txtPhotographer.Text;
+                photo.Photographer = comboPhotographer.Text;
                 photo.Notes = txtNotes.Text;
 
                 // On parse error, do not set date
@@ -127,6 +144,13 @@ namespace Manning.MyPhotoControls
                     MessageBoxIcon.Question);
                 e.Cancel = (result == DialogResult.Yes);
             }
+        }
+
+        private void comboPhotographer_Leave(object sender, EventArgs e)
+        {
+            string person = comboPhotographer.Text;
+            if (!comboPhotographer.Items.Contains(person))
+                comboPhotographer.Items.Add(person);
         }
     }
 }

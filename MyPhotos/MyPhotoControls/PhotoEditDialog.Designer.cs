@@ -35,10 +35,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtPhotoFile = new System.Windows.Forms.TextBox();
             this.txtCaption = new System.Windows.Forms.TextBox();
-            this.txtPhotographer = new System.Windows.Forms.TextBox();
+            this.mskDateTaken = new System.Windows.Forms.MaskedTextBox();
             this.txtNotes = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.mskDateTaken = new System.Windows.Forms.MaskedTextBox();
+            this.comboPhotographer = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tablePanel.SuspendLayout();
             this.SuspendLayout();
@@ -59,8 +59,8 @@
             this.tablePanel.Controls.Add(this.label4, 0, 3);
             this.tablePanel.Controls.Add(this.txtPhotoFile, 1, 0);
             this.tablePanel.Controls.Add(this.txtCaption, 1, 1);
-            this.tablePanel.Controls.Add(this.txtPhotographer, 1, 3);
             this.tablePanel.Controls.Add(this.mskDateTaken, 1, 2);
+            this.tablePanel.Controls.Add(this.comboPhotographer, 1, 3);
             this.tablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePanel.Location = new System.Drawing.Point(0, 0);
             this.tablePanel.Name = "tablePanel";
@@ -135,13 +135,15 @@
             this.txtCaption.TextChanged += new System.EventHandler(this.txtCaption_TextChanged);
             this.txtCaption.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCaption_KeyPress);
             // 
-            // txtPhotographer
+            // mskDateTaken
             // 
-            this.txtPhotographer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPhotographer.Location = new System.Drawing.Point(142, 93);
-            this.txtPhotographer.Name = "txtPhotographer";
-            this.txtPhotographer.Size = new System.Drawing.Size(194, 20);
-            this.txtPhotographer.TabIndex = 7;
+            this.mskDateTaken.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mskDateTaken.Location = new System.Drawing.Point(142, 63);
+            this.mskDateTaken.Mask = "00/00/0000";
+            this.mskDateTaken.Name = "mskDateTaken";
+            this.mskDateTaken.Size = new System.Drawing.Size(194, 20);
+            this.mskDateTaken.TabIndex = 8;
+            this.mskDateTaken.TypeValidationCompleted += new System.Windows.Forms.TypeValidationEventHandler(this.mskDateTaken_TypeValidationCompleted);
             // 
             // txtNotes
             // 
@@ -162,15 +164,18 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "&Notes:";
             // 
-            // mskDateTaken
+            // comboPhotographer
             // 
-            this.mskDateTaken.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mskDateTaken.Location = new System.Drawing.Point(142, 63);
-            this.mskDateTaken.Mask = "00/00/0000";
-            this.mskDateTaken.Name = "mskDateTaken";
-            this.mskDateTaken.Size = new System.Drawing.Size(194, 20);
-            this.mskDateTaken.TabIndex = 8;
-            this.mskDateTaken.TypeValidationCompleted += new System.Windows.Forms.TypeValidationEventHandler(this.mskDateTaken_TypeValidationCompleted);
+            this.comboPhotographer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboPhotographer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboPhotographer.FormattingEnabled = true;
+            this.comboPhotographer.Location = new System.Drawing.Point(142, 93);
+            this.comboPhotographer.MaxDropDownItems = 4;
+            this.comboPhotographer.Name = "comboPhotographer";
+            this.comboPhotographer.Size = new System.Drawing.Size(194, 21);
+            this.comboPhotographer.Sorted = true;
+            this.comboPhotographer.TabIndex = 9;
+            this.comboPhotographer.Leave += new System.EventHandler(this.comboPhotographer_Leave);
             // 
             // PhotoEditDialog
             // 
@@ -200,9 +205,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPhotoFile;
         private System.Windows.Forms.TextBox txtCaption;
-        private System.Windows.Forms.TextBox txtPhotographer;
         private System.Windows.Forms.TextBox txtNotes;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MaskedTextBox mskDateTaken;
+        private System.Windows.Forms.ComboBox comboPhotographer;
     }
 }
