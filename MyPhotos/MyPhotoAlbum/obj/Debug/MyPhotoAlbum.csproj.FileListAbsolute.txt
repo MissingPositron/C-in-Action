@@ -1,0 +1,6 @@
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoAlbum\obj\Debug\MyPhotoAlbum.csprojAssemblyReference.cache
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoAlbum\obj\Debug\MyPhotoAlbum.csproj.CoreCompileInputs.cache
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoAlbum\bin\Debug\MyPhotoAlbum.dll
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoAlbum\bin\Debug\MyPhotoAlbum.pdb
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoAlbum\obj\Debug\MyPhotoAlbum.dll
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoAlbum\obj\Debug\MyPhotoAlbum.pdb

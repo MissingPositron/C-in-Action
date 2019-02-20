@@ -1,0 +1,15 @@
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\bin\Debug\MyPhotoControls.dll
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\bin\Debug\MyPhotoControls.pdb
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\bin\Debug\MyPhotoAlbum.dll
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\bin\Debug\MyPhotoAlbum.pdb
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\obj\Debug\MyPhotoControls.csprojAssemblyReference.cache
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\obj\Debug\Manning.MyPhotoControls.PixelDialog.resources
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\obj\Debug\MyPhotoControls.csproj.GenerateResource.cache
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\obj\Debug\MyPhotoControls.csproj.CoreCompileInputs.cache
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\obj\Debug\MyPhotoControls.csproj.CopyComplete
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\obj\Debug\MyPhotoControls.dll
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\obj\Debug\MyPhotoControls.pdb
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\obj\Debug\Manning.MyPhotoControls.BaseEditDialog.resources
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\obj\Debug\Manning.MyPhotoControls.PhotoEditDialog.resources
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\obj\Debug\Manning.MyPhotoControls.AlbumEditDialog.resources
+C:\Users\50772\Documents\github\C#\inAction\2\MyPhotos\MyPhotoControls\obj\Debug\Manning.MyPhotoControls.AlbumPasswordDialog.resources
