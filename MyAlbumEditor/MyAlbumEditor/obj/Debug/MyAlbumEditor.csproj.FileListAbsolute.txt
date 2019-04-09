@@ -13,3 +13,6 @@ C:\Users\50772\Documents\github\C#\inAction\2\MyAlbumEditor\MyAlbumEditor\obj\De
 C:\Users\50772\Documents\github\C#\inAction\2\MyAlbumEditor\MyAlbumEditor\obj\Debug\MyAlbumEditor.csproj.CopyComplete
 C:\Users\50772\Documents\github\C#\inAction\2\MyAlbumEditor\MyAlbumEditor\obj\Debug\MyAlbumEditor.exe
 C:\Users\50772\Documents\github\C#\inAction\2\MyAlbumEditor\MyAlbumEditor\obj\Debug\MyAlbumEditor.pdb
+C:\Users\50772\Documents\github\C#\inAction\2\MyAlbumEditor\MyAlbumEditor\obj\Debug\MyAlbumEditor.Album_Calendar.resources
+C:\Users\50772\Documents\github\C#\inAction\2\MyAlbumEditor\MyAlbumEditor\obj\Debug\MyAlbumEditor.AlbumImage.resources
+C:\Users\50772\Documents\github\C#\inAction\2\MyAlbumEditor\MyAlbumEditor\obj\Debug\MyAlbumEditor.WorkerProgressDialog.resources

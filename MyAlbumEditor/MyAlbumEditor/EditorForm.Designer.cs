@@ -40,11 +40,17 @@
             this.btnMoveUp = new System.Windows.Forms.Button();
             this.btnPhotoProps = new System.Windows.Forms.Button();
             this.lstPhotos = new System.Windows.Forms.ListBox();
+            this.pageDates = new System.Windows.Forms.TabPage();
             this.btnClose = new System.Windows.Forms.Button();
+            this.albumCalendar = new MyAlbumEditor.Album_Calendar();
+            this.pageImages = new System.Windows.Forms.TabPage();
+            this.albumImages = new MyAlbumEditor.AlbumImage();
             this.grpAlbum.SuspendLayout();
             this.pagePhoto.SuspendLayout();
             this.tcPhotos.SuspendLayout();
             this.pagePhotos.SuspendLayout();
+            this.pageDates.SuspendLayout();
+            this.pageImages.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpAlbum
@@ -56,7 +62,7 @@
             this.grpAlbum.Controls.Add(this.btnAlbumProps);
             this.grpAlbum.Location = new System.Drawing.Point(26, 24);
             this.grpAlbum.Name = "grpAlbum";
-            this.grpAlbum.Size = new System.Drawing.Size(391, 61);
+            this.grpAlbum.Size = new System.Drawing.Size(485, 61);
             this.grpAlbum.TabIndex = 0;
             this.grpAlbum.TabStop = false;
             this.grpAlbum.Text = "&Albums";
@@ -64,7 +70,7 @@
             // btnBrowse
             // 
             this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowse.Location = new System.Drawing.Point(236, 19);
+            this.btnBrowse.Location = new System.Drawing.Point(330, 19);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(70, 23);
             this.btnBrowse.TabIndex = 3;
@@ -81,7 +87,7 @@
             this.comboAlbums.FormattingEnabled = true;
             this.comboAlbums.Location = new System.Drawing.Point(19, 21);
             this.comboAlbums.Name = "comboAlbums";
-            this.comboAlbums.Size = new System.Drawing.Size(211, 21);
+            this.comboAlbums.Size = new System.Drawing.Size(305, 21);
             this.comboAlbums.TabIndex = 2;
             this.comboAlbums.SelectionChangeCommitted += new System.EventHandler(this.comboAlbums_SelectionChangeCommitted);
             // 
@@ -89,7 +95,7 @@
             // 
             this.btnAlbumProps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAlbumProps.Enabled = false;
-            this.btnAlbumProps.Location = new System.Drawing.Point(310, 19);
+            this.btnAlbumProps.Location = new System.Drawing.Point(404, 19);
             this.btnAlbumProps.Name = "btnAlbumProps";
             this.btnAlbumProps.Size = new System.Drawing.Size(75, 23);
             this.btnAlbumProps.TabIndex = 1;
@@ -105,7 +111,7 @@
             this.pagePhoto.Controls.Add(this.tcPhotos);
             this.pagePhoto.Location = new System.Drawing.Point(26, 72);
             this.pagePhoto.Name = "pagePhoto";
-            this.pagePhoto.Size = new System.Drawing.Size(391, 186);
+            this.pagePhoto.Size = new System.Drawing.Size(485, 220);
             this.pagePhoto.TabIndex = 1;
             this.pagePhoto.TabStop = false;
             this.pagePhoto.Text = "&Photographs";
@@ -117,11 +123,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tcPhotos.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tcPhotos.Controls.Add(this.pagePhotos);
+            this.tcPhotos.Controls.Add(this.pageDates);
+            this.tcPhotos.Controls.Add(this.pageImages);
             this.tcPhotos.Location = new System.Drawing.Point(0, 16);
             this.tcPhotos.Name = "tcPhotos";
             this.tcPhotos.SelectedIndex = 0;
-            this.tcPhotos.Size = new System.Drawing.Size(385, 164);
+            this.tcPhotos.Size = new System.Drawing.Size(479, 198);
             this.tcPhotos.TabIndex = 0;
+            this.tcPhotos.SelectedIndexChanged += new System.EventHandler(this.tcPhotos_SelectedIndexChanged);
             // 
             // pagePhotos
             // 
@@ -133,15 +142,15 @@
             this.pagePhotos.Location = new System.Drawing.Point(4, 25);
             this.pagePhotos.Name = "pagePhotos";
             this.pagePhotos.Padding = new System.Windows.Forms.Padding(3);
-            this.pagePhotos.Size = new System.Drawing.Size(377, 135);
+            this.pagePhotos.Size = new System.Drawing.Size(471, 169);
             this.pagePhotos.TabIndex = 0;
-            this.pagePhotos.Text = "tabPage1";
+            this.pagePhotos.Text = "Photos";
             this.pagePhotos.UseVisualStyleBackColor = true;
             // 
             // btnRemove
             // 
             this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemove.Location = new System.Drawing.Point(296, 66);
+            this.btnRemove.Location = new System.Drawing.Point(390, 66);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
             this.btnRemove.TabIndex = 9;
@@ -152,7 +161,7 @@
             // btnMoveDown
             // 
             this.btnMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMoveDown.Location = new System.Drawing.Point(296, 35);
+            this.btnMoveDown.Location = new System.Drawing.Point(390, 35);
             this.btnMoveDown.Name = "btnMoveDown";
             this.btnMoveDown.Size = new System.Drawing.Size(75, 23);
             this.btnMoveDown.TabIndex = 8;
@@ -163,7 +172,7 @@
             // btnMoveUp
             // 
             this.btnMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMoveUp.Location = new System.Drawing.Point(296, 6);
+            this.btnMoveUp.Location = new System.Drawing.Point(390, 6);
             this.btnMoveUp.Name = "btnMoveUp";
             this.btnMoveUp.Size = new System.Drawing.Size(75, 23);
             this.btnMoveUp.TabIndex = 7;
@@ -174,7 +183,7 @@
             // btnPhotoProps
             // 
             this.btnPhotoProps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPhotoProps.Location = new System.Drawing.Point(296, 95);
+            this.btnPhotoProps.Location = new System.Drawing.Point(390, 95);
             this.btnPhotoProps.Name = "btnPhotoProps";
             this.btnPhotoProps.Size = new System.Drawing.Size(75, 25);
             this.btnPhotoProps.TabIndex = 6;
@@ -193,18 +202,29 @@
             this.lstPhotos.Location = new System.Drawing.Point(3, 6);
             this.lstPhotos.Name = "lstPhotos";
             this.lstPhotos.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstPhotos.Size = new System.Drawing.Size(281, 108);
+            this.lstPhotos.Size = new System.Drawing.Size(375, 142);
             this.lstPhotos.TabIndex = 5;
             this.lstPhotos.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lstPhotos_DrawItem);
             this.lstPhotos.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lstPhotos_MeasureItem);
             this.lstPhotos.SelectedIndexChanged += new System.EventHandler(this.lstPhotos_SelectedIndexChanged);
             this.lstPhotos.DoubleClick += new System.EventHandler(this.lstPhotos_DoubleClick);
             // 
+            // pageDates
+            // 
+            this.pageDates.Controls.Add(this.albumCalendar);
+            this.pageDates.Location = new System.Drawing.Point(4, 25);
+            this.pageDates.Name = "pageDates";
+            this.pageDates.Padding = new System.Windows.Forms.Padding(3);
+            this.pageDates.Size = new System.Drawing.Size(471, 169);
+            this.pageDates.TabIndex = 1;
+            this.pageDates.Text = "Dates";
+            this.pageDates.UseVisualStyleBackColor = true;
+            // 
             // btnClose
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnClose.Location = new System.Drawing.Point(169, 264);
+            this.btnClose.Location = new System.Drawing.Point(216, 298);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 2;
@@ -212,12 +232,43 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // albumCalendar
+            // 
+            this.albumCalendar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.albumCalendar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.albumCalendar.Location = new System.Drawing.Point(3, 3);
+            this.albumCalendar.Manager = null;
+            this.albumCalendar.Name = "albumCalendar";
+            this.albumCalendar.Size = new System.Drawing.Size(465, 163);
+            this.albumCalendar.TabIndex = 0;
+            // 
+            // pageImages
+            // 
+            this.pageImages.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pageImages.Controls.Add(this.albumImages);
+            this.pageImages.Location = new System.Drawing.Point(4, 25);
+            this.pageImages.Name = "pageImages";
+            this.pageImages.Padding = new System.Windows.Forms.Padding(3);
+            this.pageImages.Size = new System.Drawing.Size(471, 169);
+            this.pageImages.TabIndex = 2;
+            this.pageImages.Text = "Images";
+            this.pageImages.UseVisualStyleBackColor = true;
+            // 
+            // albumImages
+            // 
+            this.albumImages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.albumImages.Location = new System.Drawing.Point(3, 3);
+            this.albumImages.Name = "albumImages";
+            this.albumImages.Padding = new System.Windows.Forms.Padding(5);
+            this.albumImages.Size = new System.Drawing.Size(461, 159);
+            this.albumImages.TabIndex = 0;
+            // 
             // EditorForm
             // 
             this.AcceptButton = this.btnClose;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 298);
+            this.ClientSize = new System.Drawing.Size(523, 332);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pagePhoto);
             this.Controls.Add(this.grpAlbum);
@@ -227,6 +278,8 @@
             this.pagePhoto.ResumeLayout(false);
             this.tcPhotos.ResumeLayout(false);
             this.pagePhotos.ResumeLayout(false);
+            this.pageDates.ResumeLayout(false);
+            this.pageImages.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -246,6 +299,10 @@
         private System.Windows.Forms.Button btnMoveUp;
         private System.Windows.Forms.Button btnPhotoProps;
         private System.Windows.Forms.ListBox lstPhotos;
+        private System.Windows.Forms.TabPage pageDates;
+        private Album_Calendar albumCalendar;
+        private System.Windows.Forms.TabPage pageImages;
+        private AlbumImage albumImages;
     }
 }
 
